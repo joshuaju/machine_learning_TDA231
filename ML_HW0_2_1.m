@@ -6,7 +6,7 @@ rndData = num2cell(transpose(mvnrnd(mu, sigma, 1000)), 1);
 % Calculate function values for every cell
 values = cellfun(@(x) fun(x, 3), rndData);
 
-% Find values inside (<0) and outside (>0)
+% Find values inside (<=0) and outside (>0)
 inside = cell2mat(rndData(find(values<=0)));
 outside = cell2mat(rndData(find(values>0)));
 
