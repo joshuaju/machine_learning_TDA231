@@ -12,6 +12,6 @@ for k = 1:1:3
     c = [c circle(mu(1,1),mu(1,2),k*sigma)];      
 end
 [k1,k2,k3] = distance(x,mu,1*sigma,2*sigma,3*sigma);
-legend(c,sprintf('k: 1, %.4f',k1/len),sprintf('k: 2, %.4f',k2/len),sprintf('k: 3, %.4f',k3/len));
+legend(c,sprintf('k: 1, %.4f',1-k1/len),sprintf('k: 2, %.4f',1-k2/len),sprintf('k: 3, %.4f',1-k3/len));
 
 saveas(fig,'./hw1_2_1.png')
