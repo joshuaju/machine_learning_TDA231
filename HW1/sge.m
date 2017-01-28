@@ -16,9 +16,7 @@ mu = mean(x);
 n = length(x);
 sigma = 0;
 for i = 1:1:n
-    for l = 1:1:2
-    sigma = sigma + (x(i,l)-mu(1,l))^2;
-    end
+    sigma = sigma + (x(i,:)-mu)*transpose(x(i,:)-mu);
 end
 sigma = sqrt(1/n*sigma);
 

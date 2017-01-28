@@ -6,6 +6,7 @@ hold on
 title('Scatterplot for dataset X')
 len = length(x);
 [mu, sigma] = sge(x);
+sigma
 scatter(x(:,1),x(:,2),[10],'filled');
 c = [];
 for k = 1:1:3
