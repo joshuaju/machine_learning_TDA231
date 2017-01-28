@@ -5,7 +5,7 @@ mu = mu';
 s_range = linspace(0,5, 300);
 
 
-figure(1)
+f1 = figure
 % values
 prior_vals = arrayfun(@(s) prior(s, 1, 1), s_range);
 post_vals = arrayfun(@(s) posterior(x, mu, s, 1, 1), s_range);
@@ -16,7 +16,7 @@ plot(s_range, post_vals);
 legend('Prior', 'Posterior');
 title('Prior and Posterior distributions (alpha = beta = 1)')
 
-figure(2)
+f2 = figure
 % values
 prior_vals = arrayfun(@(s) prior(s, 10, 1), s_range);
 post_vals = arrayfun(@(s) posterior(x, mu, s, 10, 1), s_range);
@@ -27,6 +27,9 @@ plot(s_range, post_vals);
 legend('Prior', 'Posterior');
 title('Prior and Posterior distributions (alpha = 10; beta = 1)')
 
+
+saveas(f1,'./hw1_2_2_a1.png')
+saveas(f2,'./hw1_2_2_a2.png')
 
 function out = prior(s, a, b)
 % The prior distribution (invers-gamma)
