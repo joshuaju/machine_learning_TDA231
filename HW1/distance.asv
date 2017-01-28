@@ -1,0 +1,8 @@
+function [outk1,outk2,outk3] = distance(x,mu,k1,k2,k3)
+n = length(x);
+outk1=outk2,outk3
+for i = 1:1:n
+    d = sqrt((x(i,1)-mu(1,1)^2+(x(i,2)-mu(1,2))^2);
+    if(d>k3)
+        
+end
