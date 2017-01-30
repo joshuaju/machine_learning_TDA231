@@ -33,20 +33,11 @@ saveas(f2,'./hw1_2_2_a2.png')
 
 % Task 2.2 b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAP estimates for sigma^2
-sMapEstimateAlpha1Beta1 = smap(mu, 1, 1, x)
-sMapEstimateAlpha10Beta1 = smap(mu, 10, 1, x)
+smapa1b1 = smap(mu, 1, 1, x)
+smapa10b1 = smap(mu, 10, 1, x)
 
 % Task 2.2 b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Model probability
-probModelA = modelLikelihood(mu, sMapEstimateAlpha1Beta1, 1, 1, x)
-probModelB = modelLikelihood(mu, sMapEstimateAlpha10Beta1, 10, 1, x)
-
-bayesfactor = pm1 / pm2
-if bayesfactor > 1
-    disp('Model A is preffered over Model B')
-else
-    disp('Model B is preffered over Model A')
-end
+modelLikelihood(m
 
 function out = modelLikelihood(mu, s, alpha, beta, x)
 % P(M|D, mu, s, alpha, beta)
