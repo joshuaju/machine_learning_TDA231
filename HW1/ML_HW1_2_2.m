@@ -37,8 +37,8 @@ modelA_map = map(mu, 1, 1, x)
 modelB_map = map(mu, 10, 1, x)
 
 % Task c ------------------------------------------------------------------
-posteriorA = posterior(mu, modelA_map, 1, 1, x)
-posteriorB = posterior(mu, modelB_map, 10, 1, x)
+posteriorA = posterior(mu, modelA_map, 1, 1, x);
+posteriorB = posterior(mu, modelB_map, 10, 1, x);
 bayesFactor = posteriorA / posteriorB
 
 if bayesFactor > 1
@@ -48,7 +48,8 @@ else
 end
 
 function out = prior(s, a, b)
-    out = exp(a .* log(b)- sum(log([1:a-1]))+ (-a-1).* log(s)- b./s);
+    %out = exp(a*log(b)-sum(log([1:a-1]))+(-a-1)*log(s)-b/s);
+    out = exp(a*log(b)-gammaln(a)+(-a-1)*log(s)-b/s);
 end
 
 function out = posterior(mu, s, a, b, x)
