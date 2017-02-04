@@ -1,3 +1,4 @@
+% 2.1 c)
 function [YTest] = new_classifier(Xtest, mu1, mu2)
     b = 0.5 * (mu1 + mu2); % 1 1100
     Xtest-b;
