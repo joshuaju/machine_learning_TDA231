@@ -22,6 +22,6 @@ function [P1, P2, Ytest] = sph_bayes(Xtest, x, y)
 end
 function out = sphGaussian(point, mu, s)
     t1 = 1 / sqrt( 2* pi^3 * s^3);
-    t2 = exp(-1 * sum((point'-mu).^2) / (2*s));
+    t2 = exp(-1 * sum((point-mu).^2) / (2*s));
     out = t1*t2;
 end

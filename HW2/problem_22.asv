@@ -51,7 +51,7 @@ function meanFeatureVector = getMeanFeatureVector(x)
 end
 
 function featureVector = getFeatureVector(img)
-% featureVector: [var(row1), ..., var(rowN), var(col1), ..., var(colN)]
+% feature vector [var(row1), ... var(rowN), var(co
     n = 16;
     m = reshape(img, n, n) / 255;
     featureVector = zeros(2*n, 1);
