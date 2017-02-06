@@ -53,10 +53,6 @@ end
 function featureVector = getFeatureVector(img)
 % featureVector: [var(row1), ..., var(rowN), var(col1), ..., var(colN)]
     n = 16;
-    m = reshape(img, n, n) / 255;  
-    featureVector = zeros(2*n, 1);
-    for i=1:n
-        featureVector(i) = var(m(i, :)); % var of row
-        featureVector(i+n) = var(m(:, i)); % var of column
-    end
+    m = reshape(img, n, n) / 255;          
+    featureVector = [var(m')'; var(m)'];
 end

@@ -75,14 +75,8 @@ function featureVector = getFeatureVector(img, step)
     featureVector = [];    
     for i=1:step:(length(msplit)-k)
         tmpM = msplit(i:(i+k), :);
-        
-        n = length(tmpM);
-        tmpV = zeros(2*n, 1);
-        for j=1:n
-            tmpV(j) = var(tmpM(j, :)); % var of row
-            tmpV(j+n) = var(tmpM(:, j)); % var of column
-            featureVector = [featureVector; tmpV];
-        end        
+        tmpV = [var(tmpM')'; var(tmpM)'];             
+        featureVector = [featureVector; tmpV];
     end       
 end
 
