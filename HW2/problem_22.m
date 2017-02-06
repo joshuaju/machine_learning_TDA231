@@ -28,7 +28,7 @@ for tmpFold=1:nfolds
     xtest = x(:, test == 1);
     ytest = y(test == 1);     
     for i=1:size(xtest,2)
-        tmpXtest = xtest(:, i);
+        tmpXtest = xtest(:, i);        
         scaledtmpXtest = getFeatureVector(tmpXtest);
         
         tmpY = new_classifier(tmpXtest, mu5, mu8);
@@ -53,11 +53,10 @@ end
 function featureVector = getFeatureVector(img)
 % featureVector: [var(row1), ..., var(rowN), var(col1), ..., var(colN)]
     n = 16;
-    m = reshape(img, n, n) / 255;
+    m = reshape(img, n, n) / 255;  
     featureVector = zeros(2*n, 1);
     for i=1:n
         featureVector(i) = var(m(i, :)); % var of row
         featureVector(i+n) = var(m(:, i)); % var of column
     end
 end
-
