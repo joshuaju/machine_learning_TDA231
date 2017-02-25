@@ -1,0 +1,15 @@
+x = [0 0; 2 0; 0 2; 2 2; 4 4; 4 0];
+t = [-1; -1; -1;    1; 1; 1];
+
+%% Primal
+% Contraint is Aw >= 1. 'fmincon' expects Ax <= b, so we need to multiply
+% by (-1)
+A = (-1) * t .* [x ones(6,1)];
+b = (-1) * ones(6,1);
+
+xsolved = fmincon(@(x) 0.5 * (x'*x), zeros(3,1), A, b)
+%% Dual
+
+H = []; 
+f = ones(6, 1);
+quadprog(H, f, [], [], Aeq = t', beq= 0);
