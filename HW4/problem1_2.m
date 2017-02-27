@@ -9,7 +9,7 @@ t = [1; 1; 1;
 A = (-1) * t .* [x ones(6,1)];
 b = (-1) * ones(6,1);
 
-primal = fmincon(@(x) 0.5 * (x'*x), zeros(3,1), A, b)
+primal = fmincon(@(x) 0.5 * (x'*x), zeros(3,1), A, b);
 %% Dual
 K = x*x'; % linear kernel function
 H = (t*t').* K;
@@ -17,5 +17,5 @@ f = -1 * ones(6, 1);
 Aeq = t'; 
 beq=0;
 LB = zeros(6,1);
-UB =  repmat(inf, 6, 1);
-alphas = quadprog(H, f, [], [], Aeq, beq, LB, UB)
+UB =  inf(6, 1);
+alphas = quadprog(H, f, [], [], Aeq, beq, LB, UB);

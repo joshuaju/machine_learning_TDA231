@@ -1,6 +1,0 @@
-load('d2.mat')
-
-% a
-model = fitcsvm(X, Y, 'KernelFunction', 'linear');
-
-boxConstrai
