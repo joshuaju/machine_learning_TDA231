@@ -131,17 +131,10 @@ function res = grad(model, data, wd_coefficient)
   % class_prob is the model output.
   
   %% TODO - Write code here ---------------
-  n = size(data.targets,2);
 
-  delta_out = (class_prob - data.targets) * (1/n); % avg (prediction - target)
-  grad_hid_to_class = delta_out * hid_output';
-
-  delta_hidden = (delta_out' * model.hid_to_class)' .* (hid_output .* (1-hid_output));
-  grad_input_to_hid = delta_hidden * data.inputs';
-
-  res.input_to_hid = grad_input_to_hid + wd_coefficient .* model.input_to_hid;
-  res.hid_to_class = grad_hid_to_class + wd_coefficient .* model.hid_to_class;
-
+    % Right now the function just returns a lot of zeros. Your job is to change that.
+    res.input_to_hid = model.input_to_hid * 0;
+    res.hid_to_class = model.hid_to_class * 0;
   % ---------------------------------------
 end
 
